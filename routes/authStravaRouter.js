@@ -13,7 +13,7 @@ router.get("/strava/callback",
   passport.authenticate("strava", { failureRedirect: "/" }),
   function(req, res) {
     // Successful authentication, redirect home.
-    res.redirect(`${frontURL}/`);
+    res.redirect("/");
   });
 
 // Handle removing the user from the session
