@@ -23,7 +23,7 @@ router.post("/logout", (req, res) => {
 });
 
 router.get("/getUser", (req, res) => {
-  console.log(req.user);
-  res.json(req || null);});
+  //console.log(req);
+  res.json(req.user || null);});
 
 module.exports = router;

@@ -13,6 +13,7 @@ function App() {
         console.log("user", _user);
 
         if (_user) setUser(_user);
+
       });
   }, []); // Run only once
 
@@ -22,7 +23,7 @@ function App() {
 
       {user ? (
         <div>
-          <div>Welcome {user.name}</div>
+          <div>Welcome {user.displayName}</div>
           <form action={`${backUrl}/auth/logout`} method="POST">
             <input type="submit" value="Logout" />
           </form>

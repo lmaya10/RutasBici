@@ -15,13 +15,13 @@ const configureAuthStrava = app => {
       {
         clientID: STRAVA_CLIENT_ID,
 			  clientSecret: STRAVA_CLIENT_SECRET,
-        callbackURL: "http://127.0.0.1:3001/auth/strava/callback"
+        callbackURL: "http://localhost:3001/auth/strava/callback"
 		  },
 		  (accessToken, refreshToken, profile, done) =>{
 			  // asynchronous verification, for effect...
 			  process.nextTick(function () {
-				  console.log("Successful Auth", accessToken, profile._json);
-
+				  console.log("Profile", profile._json.id);
+          
           // To keep the example simple, the user"s Strava profile is returned to
           // represent the logged-in user.  In a typical application, you would want
           // to associate the Strava account with a user record in your database,
