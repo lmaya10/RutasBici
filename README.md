@@ -1,6 +1,6 @@
-#Aplicación que permite ver la calidad del aire en una ruta de bicicleta
+# Aplicación que permite ver la calidad del aire en una ruta de bicicleta
 
-###Pre requisitos
+### Pre requisitos
 
 ```
 Node.js
