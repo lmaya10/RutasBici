@@ -1,4 +1,6 @@
-*Pre requisitos*
+#Aplicación que permite ver la calidad del aire en una ruta de bicicleta
+
+###Pre requisitos
 
 ```
 Node.js
@@ -6,7 +8,7 @@ Express.js
 React
 ```
 
-*Instrucciones de uso*
+###Instrucciones de uso
 
 Clone el repositorio
 ```
