@@ -15,7 +15,7 @@ const configureAuthStrava = app => {
       {
         clientID: STRAVA_CLIENT_ID,
 			  clientSecret: STRAVA_CLIENT_SECRET,
-        callbackURL: "http;//127.0.0.1/auth/strava/callback"
+        callbackURL: "/auth/strava/callback"
 		  },
 		  (accessToken, refreshToken, profile, done) =>{
 			  // asynchronous verification, for effect...
