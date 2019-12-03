@@ -19,7 +19,7 @@ router.get("/strava/callback",
 // Handle removing the user from the session
 router.post("/logout", (req, res) => {
   req.logout();
-  res.redirect(`${frontURL}/`);
+  res.redirect("/");
 });
 
 router.get("/getUser", (req, res) => {

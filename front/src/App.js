@@ -24,12 +24,12 @@ function App() {
       {user ? (
         <div>
           <div>Welcome {user.displayName}</div>
-          <form action={`${backUrl}/auth/logout`} method="POST">
+          <form action={"/auth/logout"} method="POST">
             <input type="submit" value="Logout" />
           </form>
         </div>
       ) : (
-        <a href={`${backUrl}/auth/strava/callback`}>Please log in</a>
+        <a href={"/auth/strava/callback"}>Please log in</a>
       )}
     </div>
   );
