@@ -6,9 +6,6 @@ const session = require("express-session");
 const STRAVA_CLIENT_ID = process.env.STRAVA_CLIENT_ID;
 const STRAVA_CLIENT_SECRET = process.env.STRAVA_CLIENT_SECRET;
 
-//const STRAVA_CLIENT_ID = "41272";
-//const STRAVA_CLIENT_SECRET = "9c0610e697420042fa81438f99c2ea3885dceb10";
-
 const configureAuthStrava = app => {
   passport.use(
     new StravaStrategy(
