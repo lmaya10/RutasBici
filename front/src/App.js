@@ -1,5 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
+import Mapa from "./Mapa.js";
+
+import { BrowserRouter as Router, Route, Link, withRouter, Switch } from "react-router-dom";
+
 
 function App() {
 
@@ -8,31 +12,44 @@ function App() {
 
   useEffect(() => {
     fetch("/auth/getUser")
-      .then(res => res.json())
-      .then(_user => {
-        console.log("user", _user);
+    .then(res => res.json())
+    .then(_user => {
+      console.log("user", _user);
 
-        if (_user) setUser(_user);
+      if (_user) setUser(_user);
 
-      });
+    });
   }, []); // Run only once
 
   return (
-    <div className="App">
-      <h1>Strava react</h1>
+    <Router>
+      <Switch>
+        <div className="App">
+          <div className = "NavBar">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+              <div className="navbar-brand"><Link className="nombres" to="/">Tu Mejor Ruta</Link></div>
+              <div className="navbar-brand"><Link className="nombres" to="/">Grupos</Link></div>
+              <div className="navbar-brand"><Link className="nombres" to="/">Nuevo Grupo</Link></div>
+            </nav>
+          </div>
+          <h1>Strava react</h1>
 
-      {user ? (
-        <div>
-          <div>Welcome {user.displayName}</div>
-          <form action={"/auth/logout"} method="POST">
-            <input type="submit" value="Logout" />
-          </form>
-        </div>
-      ) : (
-        <a href={"/auth/strava/callback"}>Please log in</a>
-      )}
-    </div>
-  );
+          {user ? (
+            <div>
+              <div>Welcome {user.displayName}</div>
+                <form action={"/auth/logout"} method="POST">
+                  <input type="submit" value="Logout" />
+                </form>
+             </div>
+          ) : (
+          <a href={"/auth/strava/callback"}>Please log in</a>
+          )}
+
+          <Mapa></Mapa>
+          </div>
+        </Switch>
+      </Router>
+      );
 }
 
 export default App;
