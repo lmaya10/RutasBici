@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import Mapa from "./Mapa.js";
+import MapaConRuta from "./MapaConRuta.js"
 
 import { BrowserRouter as Router, Route, Link, withRouter, Switch } from "react-router-dom";
 
@@ -9,15 +10,15 @@ function App() {
 
   const [user, setUser] = useState(null);
   const backUrl = "http://localhost:3001";
-
   useEffect(() => {
     fetch("/auth/getUser")
     .then(res => res.json())
     .then(_user => {
       console.log("user", _user);
 
-      if (_user) setUser(_user);
-
+      if (_user) {
+        setUser(_user);
+      }
     });
   }, []); // Run only once
 
@@ -40,7 +41,10 @@ function App() {
                 <form action={"/auth/logout"} method="POST">
                   <input type="submit" value="Logout" />
                 </form>
+                <MapaConRuta user={user}></MapaConRuta>
+          
              </div>
+
           ) : (
           <a href={"/auth/strava/callback"}>Please log in</a>
           )}

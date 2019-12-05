@@ -93,7 +93,6 @@ componentDidMount() {
 		fetch(url)
 			.then(res => res.json())
 				.then(data => {
-					console.log(data.data.aqi);
 					let calidad = data.data.aqi;
 					if(calidad < 50)
 					{
@@ -772,7 +771,7 @@ componentDidMount() {
 			}
 		});
 		map.addLayer({
-			'id': 'Kennedy',
+			'id': 'Bosa',
 			'type': 'fill',
 			'source': {
 				'type': 'geojson',
