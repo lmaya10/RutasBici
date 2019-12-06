@@ -140,16 +140,13 @@ componentDidMount() {
 		cache: 'default' };
 
 		console.log("token", token);
-		let urlRuta = "https://www.strava.com/api/v3/routes/22852423";
+		let urlRuta = "https://www.strava.com/api/v3/routes/" + this.props.ruta + "/streams"; 
 		console.log("URL RUTA", urlRuta); 
 
 
 		fetch(urlRuta, myInit)
 		.then(res => res.json())
 		.then(data => {
-			console.log("Data", data.segments);
-
-
 			this.geoJsonRuta = {
 					"type": "Feature",
 					"geometry": {
@@ -157,24 +154,12 @@ componentDidMount() {
 						"coordinates": []
 					}
 			};
-			this.ruta = "[" + data.segments[0].start_longitude + "," + data.segments[0].start_latitude+ "],";
-			for(let i = 0; i < data.segments.length ; i++)
+			for(let i = 0; i < data[0].data.length ; i++)
 			{
-				this.ruta += "[" + data.segments[i].end_longitude + "," + data.segments[i].end_latitude + "],";
-				this.geoJsonRuta.geometry.coordinates.push([+data.segments[i].end_longitude,data.segments[i].end_latitude])
-				console.log(data.segments[i].start_latitude);
+				this.geoJsonRuta.geometry.coordinates.push([+data[0].data[i][1],data[0].data[i][0]])
 			}
-
-
-
 		})
-
 	}
-
-
-
-
-	console.log("Geo", this.geoJsonRuta);
 
 	map.on('move', () => {
 		this.setState({		
@@ -1198,7 +1183,7 @@ render() {
 		<div>
 		<div>Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom: {this.state.zoom}</div>
 		</div>
-		<div ref={el => this.mapContainer = el} className='mapContainer' />
+		<div ref={el => this.mapContainer = el} className='mapContainerRuta' />
 		</div>
 		)
 	}}

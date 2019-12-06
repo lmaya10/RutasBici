@@ -29,12 +29,9 @@ function MisRutas(props) {
       let rutasUsuario = []
       for(let i = 0; i < rutasUser.length ; i ++)
       {
-      	console.log("entra al for");
       	rutasUsuario.push(rutasUser[i].id)
       }
-      console.log("RutasUser", rutasUsuario);
       setRutas(rutasUsuario);
-      console.log("Estado ", rutasUsuario);
       
     });
 	}
@@ -43,12 +40,12 @@ function MisRutas(props) {
 
   function renderRutas() {
   	if(props.user){
-  		if(rutas.length === 0)
+  		if(rutas.length > 0)
   		{
-  			return <h1> Actualmente no tienes rutas en Strava, crea una para comenzar </h1>
-  		}
-  		else{
   			return rutas.map(r => <MapaConRuta user = {props.user} ruta = {r}></MapaConRuta>)	
+  			}
+  		else{
+  			return <h1> Actualmente no tienes rutas en Strava, crea una para comenzar </h1>
   		}
   	}
   	else

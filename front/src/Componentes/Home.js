@@ -16,10 +16,6 @@ function Home(props) {
                 <form action={"/auth/logout"} method="POST">
                   <input type="submit" value="Logout" />
                 </form>
-
-
-          <MisRutas user={props.user}></MisRutas>
-
              </div>
 
           ) : (
