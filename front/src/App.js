@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import Mapa from "./Mapa.js";
 import MapaConRuta from "./MapaConRuta.js"
+import MisRutas from "./MisRutas.js"
 
 import { BrowserRouter as Router, Route, Link, withRouter, Switch } from "react-router-dom";
 
@@ -42,6 +43,8 @@ function App() {
                   <input type="submit" value="Logout" />
                 </form>
                 <MapaConRuta user={user}></MapaConRuta>
+                
+          <MisRutas user={user}></MisRutas>
           
              </div>
 
