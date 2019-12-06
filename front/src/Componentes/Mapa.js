@@ -48,11 +48,11 @@ constructor(props) {
 	this.latitudes[5]= 4.6907125821;
 	this.longitudes[5]= -74.082483333;
 	this.colores[5] = "#000000";
-	
+
 	//Fontibon
 	this.latitudes[6]=4.67011252722;
 	this.longitudes[6]=-74.1415500001;
-	this.colores[6] = "#000000"; 
+	this.colores[6] = "#000000";
 
 	//Puente
 	this.latitudes[7]=4.63177909158;
@@ -63,7 +63,7 @@ constructor(props) {
 	this.latitudes[8]=4.57266226838;
 	this.longitudes[8]= -74.0837999995;
 	this.colores[8] = "#000000";
-		
+
 	//Kennedy
 	this.latitudes[9]=4.59562899578;
 	this.longitudes[9]=-74.1485833331;
@@ -74,7 +74,7 @@ constructor(props) {
 	this.longitudes[10]=-74.130966666;
 	this.colores[10] = "#000000";
 
-	
+
 }
 
 componentDidMount() {
@@ -89,7 +89,7 @@ componentDidMount() {
 	for(let i = 0; i < this.latitudes.length; i++)
 	{
 		let url = 'https://api.waqi.info/feed/geo:'+this.latitudes[i]+';'+this.longitudes[i]+'/?token=dff319f47044fe2a774b924e794aead02b2d5e12';
-	
+
 		fetch(url)
 			.then(res => res.json())
 				.then(data => {
@@ -118,7 +118,7 @@ componentDidMount() {
 					{
 						this.colores[i] = "#820024";
 					}
-				});	
+				});
 
 
 	}
@@ -126,12 +126,12 @@ componentDidMount() {
 
 
 	map.on('move', () => {
-		this.setState({		
+		this.setState({
 			lng: map.getCenter().lng.toFixed(4),
 			lat: map.getCenter().lat.toFixed(4),
 			zoom: map.getZoom().toFixed(2)
 		});
-	}		
+	}
 	);
 
 	map.on('load', () => {
@@ -173,7 +173,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[0],
 				'fill-opacity': 0.5,
-				
+
 			}
 		});
 
@@ -214,7 +214,7 @@ componentDidMount() {
 				'fill-color': this.colores[1],
 				'fill-opacity': 0.5,
 
-				
+
 			}
 		});
 
@@ -242,7 +242,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[2],
 				'fill-opacity': 0.5,
-				
+
 			}
 		});
 
@@ -292,7 +292,7 @@ componentDidMount() {
 				'fill-color': this.colores[3],
 				'fill-opacity': 0.5,
 
-				
+
 			}
 		});
 
@@ -328,7 +328,7 @@ componentDidMount() {
 						[-74.0553005,4.6229826],
 						[-74.0638836,4.6241803],
 						[-74.0649136,4.625378],
-						[-74.0688617,4.6272601],	
+						[-74.0688617,4.6272601],
 						]]
 					}
 				}
@@ -337,7 +337,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[4],
 				'fill-opacity': 0.5,
-				
+
 			}
 		});
 
@@ -386,7 +386,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[4],
 				'fill-opacity': 0.5,
-				
+
 			}
 		});
 
@@ -423,7 +423,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[5],
 				'fill-opacity': 0.5,
-				
+
 			}
 		});
 
@@ -507,7 +507,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[6],
 				'fill-opacity': 0.5,
-				
+
 			}
 		});
 
@@ -547,7 +547,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[4],
 				'fill-opacity': 0.5,
-				
+
 			}
 		});
 
@@ -577,7 +577,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[7],
 				'fill-opacity': 0.5,
-				
+
 			}
 		});
 
@@ -622,7 +622,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[7],
 				'fill-opacity': 0.5,
-				
+
 			}
 		});
 
@@ -668,7 +668,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[8],
 				'fill-opacity': 0.5,
-				
+
 			}
 		});
 
@@ -707,7 +707,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[7],
 				'fill-opacity': 0.5,
-				
+
 			}
 		});
 
@@ -767,7 +767,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[9],
 				'fill-opacity': 0.5,
-				
+
 			}
 		});
 		map.addLayer({
@@ -850,7 +850,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color':this.colores[9],
 				'fill-opacity': 0.5,
-				
+
 			}
 		});
 
@@ -902,7 +902,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[8],
 				'fill-opacity': 0.5,
-				
+
 			}
 		});
 
@@ -988,7 +988,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[10],
 				'fill-opacity': 0.5,
-				
+
 			}
 		});
 
@@ -1056,7 +1056,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[8],
 				'fill-opacity': 0.5,
-				
+
 			}
 		});
 
@@ -1128,7 +1128,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[9],
 				'fill-opacity': 0.5,
-				
+
 			}
 		});
 
