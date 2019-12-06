@@ -173,7 +173,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[0],
 				'fill-opacity': 0.5,
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
@@ -214,7 +214,7 @@ componentDidMount() {
 				'fill-color': this.colores[1],
 				'fill-opacity': 0.5,
 
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
@@ -242,7 +242,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[2],
 				'fill-opacity': 0.5,
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
@@ -292,7 +292,7 @@ componentDidMount() {
 				'fill-color': this.colores[3],
 				'fill-opacity': 0.5,
 
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
@@ -337,7 +337,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[4],
 				'fill-opacity': 0.5,
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
@@ -386,7 +386,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[4],
 				'fill-opacity': 0.5,
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
@@ -423,7 +423,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[5],
 				'fill-opacity': 0.5,
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
@@ -507,7 +507,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[6],
 				'fill-opacity': 0.5,
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
@@ -547,7 +547,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[4],
 				'fill-opacity': 0.5,
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
@@ -577,7 +577,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[7],
 				'fill-opacity': 0.5,
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
@@ -622,7 +622,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[7],
 				'fill-opacity': 0.5,
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
@@ -668,7 +668,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[8],
 				'fill-opacity': 0.5,
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
@@ -707,7 +707,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[7],
 				'fill-opacity': 0.5,
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
@@ -767,7 +767,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[9],
 				'fill-opacity': 0.5,
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 		map.addLayer({
@@ -850,7 +850,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color':this.colores[9],
 				'fill-opacity': 0.5,
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
@@ -902,7 +902,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[8],
 				'fill-opacity': 0.5,
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
@@ -988,7 +988,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[10],
 				'fill-opacity': 0.5,
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
@@ -1056,7 +1056,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[8],
 				'fill-opacity': 0.5,
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
@@ -1128,7 +1128,7 @@ componentDidMount() {
 			'paint': {
 				'fill-color': this.colores[9],
 				'fill-opacity': 0.5,
-				'fill-outline-color':'#000000'
+				
 			}
 		});
 
