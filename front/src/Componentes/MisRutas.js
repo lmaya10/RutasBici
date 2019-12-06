@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react';
+import MapaConRuta from "./MapaConRuta.js"
 
 function MisRutas(props) {
 
 	const [rutas, setRutas] = useState([]);
 
 	useEffect(() => {
-
-	let token = "Bearer "+ props.user.token;
+	if(props.user)
+	{
+		let token = "Bearer "+ props.user.token;
 		let myHeaders = new Headers();
 		myHeaders.append("Authorization", token);
 		let idUser = props.user.id;
@@ -24,12 +26,40 @@ function MisRutas(props) {
 		fetch(url, myInit)
     .then(res => res.json())
     .then(rutasUser => {
-      console.log("RutasUser", rutasUser);
+      let rutasUsuario = []
+      for(let i = 0; i < rutasUser.length ; i ++)
+      {
+      	console.log("entra al for");
+      	rutasUsuario.push(rutasUser[i].id)
+      }
+      console.log("RutasUser", rutasUsuario);
+      setRutas(rutasUsuario);
+      console.log("Estado ", rutasUsuario);
+      
     });
+	}
+		
   }, []); // Run only once
+
+  function renderRutas() {
+  	if(props.user){
+  		if(rutas.length === 0)
+  		{
+  			return <h1> Actualmente no tienes rutas en Strava, crea una para comenzar </h1>
+  		}
+  		else{
+  			return rutas.map(r => <MapaConRuta user = {props.user} ruta = {r}></MapaConRuta>)	
+  		}
+  	}
+  	else
+  	{
+  	 	return <h1> Inicie sesion para importar sus rutas </h1>	
+  	} 
+  };
 
 	return (
 		<div>
+			{renderRutas()}
 		</div>
 		);
 }
