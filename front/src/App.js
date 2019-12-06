@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 
-import MapaConRuta from "./Componentes/MapaConRuta.js"
-import Home from "./Componentes/Home.js"
+import MapaConRuta from "./Componentes/MapaConRuta.js";
+import Home from "./Componentes/Home.js";
+import MisRutas from "./Componentes/MisRutas.js";
+import BuscarRutas from "./Componentes/BuscarRutas.js";
 
 import { BrowserRouter as Router, Route, Link, withRouter, Switch } from "react-router-dom";
 
@@ -37,8 +39,8 @@ function App() {
           </div>
 
           <Route path='/' render = {(props) => <Home {...props} user = {user}  />} exact/>
-          <Route path='/misRutas' render = {(props) => <MapaConRuta {...props} user = {user} />} />
-          <Route path='/buscarRutas' render = {(props) => <MapaConRuta {...props} user = {user} />} />
+          <Route path='/misRutas' render = {(props) => <MisRutas {...props} user = {user} />} />
+          <Route path='/buscarRutas' render = {(props) => <BuscarRutas {...props} user = {user} />} />
           <Route path='/grupos' render = {(props) => <MapaConRuta {...props} user = {user} />} />
 
         </div>
