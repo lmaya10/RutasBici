@@ -50,7 +50,6 @@ function App() {
           )}
 
           <Mapa></Mapa>
-          <MapaConRuta user={user} />
           </div>
         </Switch>
       </Router>
