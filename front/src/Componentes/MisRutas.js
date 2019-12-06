@@ -32,17 +32,17 @@ function MisRutas(props) {
       	rutasUsuario.push(rutasUser[i].id)
       }
       setRutas(rutasUsuario);
-      
+
     });
 	}
-		
+
   }, []); // Run only once
 
   function renderRutas() {
   	if(props.user){
   		if(rutas.length > 0)
   		{
-  			return rutas.map(r => <MapaConRuta user = {props.user} ruta = {r}></MapaConRuta>)	
+  			return rutas.map(r => <MapaConRuta className="col-md-6 col-sm-6" user = {props.user} ruta = {r}></MapaConRuta>)
   			}
   		else{
   			return <h1> Actualmente no tienes rutas en Strava, crea una para comenzar </h1>
@@ -50,12 +50,12 @@ function MisRutas(props) {
   	}
   	else
   	{
-  	 	return <h1> Inicie sesion para importar sus rutas </h1>	
-  	} 
+  	 	return <h1> Inicie sesion para importar sus rutas </h1>
+  	}
   };
 
 	return (
-		<div>
+		<div className="row">
 			{renderRutas()}
 		</div>
 		);

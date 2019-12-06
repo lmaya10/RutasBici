@@ -17,7 +17,6 @@ function Home(props) {
                   <input type="submit" value="Logout" />
                 </form>
              </div>
-
           ) : (
           <a href={"/auth/strava/callback"}>Please log in</a>
           )}

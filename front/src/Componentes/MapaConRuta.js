@@ -48,11 +48,11 @@ constructor(props) {
 	this.latitudes[5]= 4.6907125821;
 	this.longitudes[5]= -74.082483333;
 	this.colores[5] = "#000000";
-	
+
 	//Fontibon
 	this.latitudes[6]=4.67011252722;
 	this.longitudes[6]=-74.1415500001;
-	this.colores[6] = "#000000"; 
+	this.colores[6] = "#000000";
 
 	//Puente
 	this.latitudes[7]=4.63177909158;
@@ -76,7 +76,7 @@ constructor(props) {
 
 	this.ruta="";
 	this.geoJsonRuta="";
-	
+
 }
 
 componentDidMount() {
@@ -120,7 +120,7 @@ componentDidMount() {
 			{
 				this.colores[i] = "#820024";
 			}
-		});	
+		});
 	}
 
 
@@ -140,8 +140,8 @@ componentDidMount() {
 		cache: 'default' };
 
 		console.log("token", token);
-		let urlRuta = "https://www.strava.com/api/v3/routes/" + this.props.ruta + "/streams"; 
-		console.log("URL RUTA", urlRuta); 
+		let urlRuta = "https://www.strava.com/api/v3/routes/" + this.props.ruta + "/streams";
+		console.log("URL RUTA", urlRuta);
 
 
 		fetch(urlRuta, myInit)
@@ -162,12 +162,12 @@ componentDidMount() {
 	}
 
 	map.on('move', () => {
-		this.setState({		
+		this.setState({
 			lng: map.getCenter().lng.toFixed(4),
 			lat: map.getCenter().lat.toFixed(4),
 			zoom: map.getZoom().toFixed(2)
 		});
-	}		
+	}
 	);
 
 	map.on('load', () => {
@@ -370,7 +370,7 @@ componentDidMount() {
 							[-74.0553005,4.6229826],
 							[-74.0638836,4.6241803],
 							[-74.0649136,4.625378],
-							[-74.0688617,4.6272601],	
+							[-74.0688617,4.6272601],
 							]]
 						}
 					}
@@ -1179,8 +1179,12 @@ componentDidMount() {
 
 render() {
 	return (
-		<div>
+		<div className="col-md-6 col-sm-6">
+		<h2>Nombre de la ruta</h2>
 		<div ref={el => this.mapContainer = el} className='mapContainerRuta' />
+		<h6>Distancia Total</h6>
+		<h6>Altura maxima</h6>
+		<h6>Altura minima</h6>
 		</div>
 		)
 	}}

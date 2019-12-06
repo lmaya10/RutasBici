@@ -37,12 +37,12 @@ function App() {
               <div className="navbar-brand"><Link className="nombres" to="/grupos">Este no existe. Es para que no se putee</Link></div>
             </nav>
           </div>
-
-          <Route path='/' render = {(props) => <Home {...props} user = {user}  />} exact/>
-          <Route path='/misRutas' render = {(props) => <MisRutas {...props} user = {user} />} />
-          <Route path='/buscarRutas' render = {(props) => <BuscarRutas {...props} user = {user} />} />
-          <Route path='/grupos' render = {(props) => <MapaConRuta {...props} user = {user} />} />
-
+          <div className="container">
+            <Route path='/' render = {(props) => <Home {...props} user = {user}  />} exact/>
+            <Route path='/misRutas' render = {(props) => <MisRutas {...props} user = {user} />} />
+            <Route path='/buscarRutas' render = {(props) => <BuscarRutas {...props} user = {user} />} />
+            <Route path='/grupos' render = {(props) => <MapaConRuta {...props} user = {user} />} />
+          </div>
         </div>
       </Switch>
     </Router>
