@@ -9,19 +9,15 @@ function Home(props) {
 
   return (
     <div>
-
-               {props.user ? (
-            <div>
-              <div>Welcome {props.user.displayName}</div>
-                <form action={"/auth/logout"} method="POST">
-                  <input type="submit" value="Logout" />
-                </form>
-             </div>
-          ) : (
-          <a href={"/auth/strava/callback"}>Please log in</a>
-          )}
-          <h1>Se esta mostrando este mapa</h1>
-          <Mapa></Mapa>
+          <div>
+            <h1>Este es el Home. Toca editarlo para agregar toda la info que sea necesaria</h1>
+            <div className="col-md-10 offset-md-1">
+              <Mapa></Mapa>
+            </div>
+          </div>
+          <div>
+            <h1> Aca va toda la descripción de la pagina</h1>
+          </div>
     </div>
     );
 }
