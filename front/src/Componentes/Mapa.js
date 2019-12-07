@@ -9,11 +9,16 @@ class Mapa extends React.Component {
 
 constructor(props) {
 	super(props);
+
 	this.state = {
+	  loading:true,
+	  calidadActual:null,
 		lng: -74.065248,
 		lat: 4.700295,
 		zoom: 10,
 	};
+
+
 
 	this.latitudes = [];
 	this.longitudes = [];
@@ -74,17 +79,39 @@ constructor(props) {
 	this.longitudes[10]=-74.130966666;
 	this.colores[10] = "#000000";
 
+this.showPosition=this.showPosition.bind(this);
+}
 
+async showPosition(position){
+  console.log("Latitude: " + position.coords.latitude +
+    " Longitude: " + position.coords.longitude);
+    this.setState({lat: position.coords.latitude});
+    this.setState({lng: position.coords.longitude})
+
+  const url='https://api.waqi.info/feed/geo:'+this.state.lat+';'+this.state.lng+'/?token=dff319f47044fe2a774b924e794aead02b2d5e12'
+  console.log('url'+url)
+  const response=await fetch(url);
+  const data=await response.json();
+  console.log(data.data.aqi);
+  this.setState({calidadActual: data.data})
+  this.setState({loading:false})
 }
 
 componentDidMount() {
+
+  if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(this.showPosition);
+  }
+	else {
+  console.log("Geolocation is not supported by this browser.");
+  }
+
 	const map = new mapboxgl.Map({
 		container: this.mapContainer,
 		style: 'mapbox://styles/mapbox/streets-v11',
 		center: [this.state.lng, this.state.lat],
 		zoom: this.state.zoom
 	});
-
 
 	for(let i = 0; i < this.latitudes.length; i++)
 	{
@@ -1138,8 +1165,19 @@ componentDidMount() {
 render() {
 	return (
 		<div>
-		<div ref={el => this.mapContainer = el} className='mapContainer' />
-		</div>
+      {this.state.loading ?
+      	<div>
+      		Se esta cargando la informacion de la calidad del aire
+
+      	</div>:
+        <div>
+          Actualmente la calidad en su lugar actual es: {this.state.calidadActual.aqi}
+
+        </div>}
+        <div ref={el => this.mapContainer = el} className='mapContainer' />
+    </div>
+
+
 		)
 	}}
 

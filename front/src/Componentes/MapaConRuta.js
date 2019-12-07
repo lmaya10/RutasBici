@@ -13,6 +13,11 @@ constructor(props) {
 		lng: -74.065248,
 		lat: 4.700295,
 		zoom: 10,
+		distancia:0,
+		altura:0,
+		tiempo:"",
+		nombre:"Ruta",
+
 	};
 
 	this.latitudes = [];
@@ -74,7 +79,7 @@ constructor(props) {
 	this.longitudes[10]=-74.130966666;
 	this.colores[10] = "#000000";
 
-	this.ruta="";
+
 	this.geoJsonRuta="";
 
 }
@@ -86,7 +91,6 @@ componentDidMount() {
 		center: [this.state.lng, this.state.lat],
 		zoom: this.state.zoom
 	});
-
 
 	for(let i = 0; i < this.latitudes.length; i++)
 	{
@@ -141,7 +145,7 @@ componentDidMount() {
 
 		console.log("token", token);
 		let urlRuta = "https://www.strava.com/api/v3/routes/" + this.props.ruta + "/streams";
-		console.log("URL RUTA", urlRuta);
+
 
 
 		fetch(urlRuta, myInit)
@@ -159,6 +163,24 @@ componentDidMount() {
 				this.geoJsonRuta.geometry.coordinates.push([+data[0].data[i][1],data[0].data[i][0]])
 			}
 		})
+
+		let urlRutaData = "https://www.strava.com/api/v3/routes/" + this.props.ruta;
+
+		console.log("URL RUTA", urlRutaData);
+
+		fetch(urlRutaData, myInit)
+		.then(res => res.json())
+		.then(data => {
+			console.log("DATA RUTA ", data)
+
+			this.setState({altura: data.elevation_gain.toFixed(2)})
+			this.setState({distancia: data.distance.toFixed(2)})
+			this.setState({nombre: data.name})
+			let segundos = data.estimated_moving_time;
+			this.setState({tiempo:  new Date(segundos * 1000).toISOString().substr(11, 8)})
+
+		})
+
 	}
 
 	map.on('move', () => {
@@ -171,7 +193,6 @@ componentDidMount() {
 	);
 
 	map.on('load', () => {
-		console.log("coordenada", this.ruta.toString());
 		console.log("GeoJsonLoad ", this.geoJsonRuta);
 
 			map.addSource(
@@ -1180,11 +1201,11 @@ componentDidMount() {
 render() {
 	return (
 		<div className="col-md-6 col-sm-6">
-		<h2>Nombre de la ruta</h2>
+		<h2>Ruta: {this.state.nombre}</h2>
 		<div ref={el => this.mapContainer = el} className='mapContainerRuta' />
-		<h6>Distancia Total</h6>
-		<h6>Altura maxima</h6>
-		<h6>Altura minima</h6>
+		<h6>Distancia Total: {this.state.distancia} mts</h6>
+		<h6>Desnivel Positivo: {this.state.altura} mts </h6>
+		<h6>Tiempo Estimado: {this.state.tiempo} </h6>
 		<button type="button" class="btn btn-secondary">Publicar Ruta</button>
 		</div>
 		)
