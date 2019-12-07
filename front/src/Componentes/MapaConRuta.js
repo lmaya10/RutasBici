@@ -1185,6 +1185,7 @@ render() {
 		<h6>Distancia Total</h6>
 		<h6>Altura maxima</h6>
 		<h6>Altura minima</h6>
+		<button type="button" class="btn btn-secondary">Publicar Ruta</button>
 		</div>
 		)
 	}}

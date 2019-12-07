@@ -34,14 +34,24 @@ function App() {
               <div className="navbar-brand"><Link className="nombres" to="/">Tu Mejor Ruta</Link></div>
               <div className="navbar-brand"><Link className="nombres" to="/misRutas">Mis Rutas</Link></div>
               <div className="navbar-brand"><Link className="nombres" to="/buscarRutas">Buscar Rutas</Link></div>
-              <div className="navbar-brand"><Link className="nombres" to="/grupos">Este no existe. Es para que no se putee</Link></div>
+              <ul class="navbar-nav ml-auto">
+                {user ?
+                <div>
+                  <div className="navbar-brand">
+                    <form className="btn" action={"/auth/logout"} method="POST">
+                      <input className="btn" type="submit" value="Logout" />
+                    </form></div>
+                  </div>:
+                <div>
+                  <div className="navbar-brand"> <a className="btn" href={"/auth/strava/callback"}>LogIn</a></div>
+                </div>}
+              </ul>
             </nav>
           </div>
           <div className="container">
             <Route path='/' render = {(props) => <Home {...props} user = {user}  />} exact/>
             <Route path='/misRutas' render = {(props) => <MisRutas {...props} user = {user} />} />
             <Route path='/buscarRutas' render = {(props) => <BuscarRutas {...props} user = {user} />} />
-            <Route path='/grupos' render = {(props) => <MapaConRuta {...props} user = {user} />} />
           </div>
         </div>
       </Switch>
