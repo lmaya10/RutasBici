@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import MapaConRuta from "./MapaConRuta.js"
+import MapaConRutaDos from "./MapaConRutaDos.js"
 
 function BuscarRutas(props) {
 
 	useEffect(() => {
-		
+
 	}, [])
 
 
   const renderPaseos = () => props.paseos.map(d =>
-  	<div>
-      <MapaConRuta  user = {props.user} ruta = {d.idRuta}></MapaConRuta>
-			<h1>{d.user}</h1>
+  	<div className="col-md-6 col-sm-6">
+      <h2>Dueño de Ruta: {d.user}</h2>
+      <MapaConRutaDos  user = {props.user} ruta = {d.idRuta}></MapaConRutaDos>
 			<br/>
   	</div>
   )
