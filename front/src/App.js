@@ -63,9 +63,21 @@ function App() {
           <div className = "NavBar">
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
               <div className="navbar-brand"><Link className="nombres" to="/">Tu Mejor Ruta</Link></div>
-              <div className="navbar-brand"><Link className="nombres" to="/misRutas">Mis Rutas</Link></div>
-              <div className="navbar-brand"><Link className="nombres" to="/buscarRutas">Buscar Rutas</Link></div>
-              <ul class="navbar-nav ml-auto">
+
+
+              {user ?
+                <div>
+                  <div className="navbar-brand"><Link className="nombres" to="/misRutas">Mis Rutas</Link></div>
+                  <div className="navbar-brand"><Link className="nombres" to="/buscarRutas">Buscar Rutas</Link></div>
+                </div>:
+                <div>
+
+                </div>}
+
+
+
+
+                  <ul class="navbar-nav ml-auto">
                 {user ?
                 <div>
                   <div className="navbar-brand">
