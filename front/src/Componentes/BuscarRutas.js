@@ -19,8 +19,9 @@ function BuscarRutas(props) {
       )
     }
     else
-    {
-      return(<h1>Debe iniciar sesión para poder acceder a esta funcionalidad </h1>)
+    {	
+      	// Sería interesante que mostraran otro tipo de información aquí para que al aplicación se siente más amigable y accesible
+	return(<h1>Debe iniciar sesión para poder acceder a esta funcionalidad </h1>)
       
     }
   };
