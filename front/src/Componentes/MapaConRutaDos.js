@@ -1220,6 +1220,8 @@ render() {
       <h6>Distancia Total: {this.state.distancia} mts</h6>
       <h6>Desnivel Positivo: {this.state.altura} mts </h6>
       <h6>Tiempo Estimado: {this.state.tiempo} </h6>
+      <h6>Fecha: {this.props.fecha} </h6>
+      <h6>Cupos: {this.props.cupos} </h6>
       {this.state.publico ?
       <div>
       </div>:
