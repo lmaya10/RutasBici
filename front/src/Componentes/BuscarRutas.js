@@ -17,16 +17,16 @@ function BuscarRutas(props) {
 	}, [])
 
 
-  const renderPaseos = () => paseos.map(d => 
+  const renderPaseos = () => paseos.map(d =>
   	<div>
 			<h1>{d.nombre}</h1>
 			<br/>
   	</div>
   )
-	
+
   return(
       <div>
-        <div >
+        <div>
           <h1 className = "tituloGrupos">Rutas Actuales</h1>
           <br/>
         </div>

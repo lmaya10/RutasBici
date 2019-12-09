@@ -1172,7 +1172,6 @@ render() {
       	</div>:
         <div>
           Actualmente la calidad en su lugar actual es: {this.state.calidadActual.aqi}
-
         </div>}
         <div ref={el => this.mapContainer = el} className='mapContainer' />
     </div>
