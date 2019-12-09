@@ -1226,6 +1226,7 @@ render() {
       <div>
       </div>:
       <div>
+        {*/No es muy claro en dónde se guarda la ruta escogida aquí. Uno se inscribe a una pero no aparecen en "Mis Rutas"*/}
         <button onClick={this.cambiarEstado} className="btn">Inscribirse a Ruta</button>
 
       </div>}
