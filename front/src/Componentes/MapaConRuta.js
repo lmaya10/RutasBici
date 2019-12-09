@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
 import './Mapa.css';
+import { BrowserRouter as Router, Route, Link, withRouter, Switch } from "react-router-dom";
+import LlenarFormulario from "./LlenarFormulario.js";
 
 mapboxgl.accessToken = "pk.eyJ1IjoibG1heWExMCIsImEiOiJjazNwOWo0ODUwMHVlM25xYzJ6d3czMTAwIn0.l_Mep-KqFaX4k96TX3LhAw";
 class MapaConRuta extends React.Component {
@@ -17,8 +19,11 @@ constructor(props) {
 		altura:0,
 		tiempo:"",
 		nombre:"Ruta",
+		publico:false,
 
 	};
+	this.cambiarEstado = this.cambiarEstado.bind(this)
+	this.cambiarEstado2 = this.cambiarEstado2.bind(this)
 
 	this.latitudes = [];
 	this.longitudes = [];
@@ -1197,16 +1202,37 @@ componentDidMount() {
 
 		});
 }
+ cambiarEstado() {
+    this.setState({publico: true});
+  }
+  cambiarEstado2() {
+    this.setState({publico: false});
+  }
 
 render() {
 	return (
+
 		<div className="col-md-6 col-sm-6">
-		<h2>Ruta: {this.state.nombre}</h2>
-		<div ref={el => this.mapContainer = el} className='mapContainerRuta' />
-		<h6>Distancia Total: {this.state.distancia} mts</h6>
-		<h6>Desnivel Positivo: {this.state.altura} mts </h6>
-		<h6>Tiempo Estimado: {this.state.tiempo} </h6>
-		<button type="button" class="btn btn-secondary">Publicar Ruta</button>
+			<h2>Ruta: {this.state.nombre}</h2>
+			<div ref={el => this.mapContainer = el} className='mapContainerRuta' />
+			<h6>Distancia Total: {this.state.distancia} mts</h6>
+			<h6>Desnivel Positivo: {this.state.altura} mts </h6>
+			<h6>Tiempo Estimado: {this.state.tiempo} </h6>
+			{this.state.publico ?
+      <div>
+      </div>:
+      <div>
+      	<button onClick={this.cambiarEstado} type="button" class="btn btn-secondary">Buscar Rutas</button>
+      </div>}
+
+
+			{this.state.publico ?
+      <div>
+        <LlenarFormulario> </LlenarFormulario>
+        <button onClick={this.cambiarEstado2} type="button" class="btn btn-secondary">Cancelar</button>
+      </div>:
+      <div>
+      </div>}
 		</div>
 		)
 	}}
