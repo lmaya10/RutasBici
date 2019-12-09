@@ -7,14 +7,23 @@ function BuscarRutas(props) {
 
 	}, [])
 
-
-  const renderPaseos = () => props.paseos.map(d =>
-  	<div className="col-md-6 col-sm-6">
-      <h2>Dueño de Ruta: {d.user}</h2>
-      <MapaConRutaDos  user = {props.user} ruta = {d.idRuta}></MapaConRutaDos>
-			<br/>
-  	</div>
-  )
+  function renderPaseos () {
+     if(props.user)
+      {
+        return props.paseos.map(d => 
+        <div className="col-md-6 col-sm-6">
+          <h2>Dueño de Ruta: {d.user}</h2>
+          <MapaConRutaDos  user = {props.user} ruta = {d.idRuta}></MapaConRutaDos>
+          <br/>
+        </div>
+      )
+    }
+    else
+    {
+      return(<h1>Debe iniciar sesión para poder acceder a esta funcionalidad </h1>)
+      
+    }
+  };
 
   return(
       <div>
