@@ -41,7 +41,9 @@ render(){
             required
           />
         </div>
-        <input type="hidden" name="user" value={this.props.usuario}/>
+        <input type="hidden" name="user" value={this.props.user.displayName}/>
+
+        <input type="hidden" name="idRuta" value={this.props.idRuta}/>
 
         <input type="hidden" name="numInscritas" value="0"/>
 

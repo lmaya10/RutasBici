@@ -1231,7 +1231,7 @@ render() {
 
 			{this.state.publico ?
       <div>
-        <LlenarFormulario idRuta={this.state.idRuta}> </LlenarFormulario>
+        <LlenarFormulario user = {this.props.user} idRuta={this.state.idRuta}> </LlenarFormulario>
         <button onClick={this.cambiarEstado2} className="btn btnR">Cancelar</button>
       </div>:
       <div>

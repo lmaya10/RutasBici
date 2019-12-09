@@ -1,16 +1,21 @@
 import React, {useEffect, useState} from 'react';
+import MapaConRuta from "./MapaConRuta.js"
+
 function BuscarRutas(props) {
   const [paseos, setPaseos] = useState([]);
   const [err, setErr] = useState("");
 
 	useEffect(() => {
-		fetch("paseos")
+    console.log("Entra a use effect");
+		fetch("/paseos")
       .then(res => res.json())
       .then( data => {
         if(data.err) {
+          console.log("Entra a error");
           setErr(JSON.stringify(data.msg));
         }
         else{
+          console.log("Paseos ", data)
           setPaseos(data);
         }
       });
@@ -19,7 +24,8 @@ function BuscarRutas(props) {
 
   const renderPaseos = () => paseos.map(d =>
   	<div>
-			<h1>{d.nombre}</h1>
+      <MapaConRuta  user = {props.user} ruta = {d.idRuta}></MapaConRuta>
+			<h1>{d.user}</h1>
 			<br/>
   	</div>
   )
