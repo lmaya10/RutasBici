@@ -1230,7 +1230,7 @@ render() {
           <input type="hidden" name="idRuta" value={this.props.ruta}/>
           <input type="hidden" name="fecha" value={this.props.fecha}/>
           
-          <input className = "btn" type="submit" value="Inscribirse a Ruta"></input>
+          <input className = "btn" onClick={this.cambiarEstado} type="submit" value="Inscribirse a Ruta"></input>
         </form>
       </div>}
       {this.state.publico ?
