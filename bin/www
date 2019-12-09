@@ -8,6 +8,12 @@ var app = require("../app");
 var debug = require("debug")("proyectofinal:server");
 var http = require("http");
 
+
+const MyMongoLib = require("../MyMongoLib");
+const myMongoLib = MyMongoLib();  
+const MyWsLib = require("../MyWsLib");
+const myWsLib = MyWsLib();  
+
 /**
  * Get port from environment and store in Express.
  */
@@ -24,6 +30,9 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
+
+myWsLib.setupWS(server);
+myMongoLib.listenToChangesPaseos(myWsLib.notifyAll);
 
 server.listen(port);
 server.on("error", onError);

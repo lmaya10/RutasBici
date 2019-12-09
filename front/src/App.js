@@ -12,8 +12,25 @@ import { BrowserRouter as Router, Route, Link, withRouter, Switch } from "react-
 
 function App() {
 
+  const [paseos, setPaseos] = useState([]);
+  const [err, setErr] = useState("");
   const [user, setUser] = useState(null);
   const backUrl = "http://localhost:3001";
+
+  let HOST = window.location.origin.replace(/^http/, 'ws');
+  let ws = new WebSocket(HOST);
+
+  //const ws = new WebSocket("ws://localhost:3001");
+  ws.onopen = () => {
+    console.log("Connected to ws");
+
+    ws.onmessage = msg => {
+      setPaseos(JSON.parse(msg.data));
+      console.log("Got ws data",msg.data);
+    };
+  };
+
+
   useEffect(() => {
     fetch("/auth/getUser")
     .then(res => res.json())
@@ -24,6 +41,19 @@ function App() {
         setUser(_user);
       }
     });
+
+    fetch("/paseos")
+      .then(res => res.json())
+      .then( data => {
+        if(data.err) {
+          console.log("Entra a error");
+          setErr(JSON.stringify(data.msg));
+        }
+        else{
+          console.log("Paseos ", data)
+          setPaseos(data);
+        }
+      });
   }, []); // Run only once
 
   return (
@@ -52,7 +82,7 @@ function App() {
           <div className="container">
             <Route path='/' render = {(props) => <Home {...props} user = {user}  />} exact/>
             <Route path='/misRutas' render = {(props) => <MisRutas {...props} user = {user} />} />
-            <Route path='/buscarRutas' render = {(props) => <BuscarRutas {...props} user = {user} />} />
+            <Route path='/buscarRutas' render = {(props) => <BuscarRutas {...props} user = {user} paseos = {paseos}/>} />
 
 
           </div>

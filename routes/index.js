@@ -1,7 +1,6 @@
 var express = require("express");
 var router = express.Router();
-const path=require("path");
-const app = express();
+
 
 const MyMongoLib = require("../MyMongoLib");
 const myMongoLib = MyMongoLib();
