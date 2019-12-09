@@ -53,7 +53,7 @@ function App() {
             <Route path='/' render = {(props) => <Home {...props} user = {user}  />} exact/>
             <Route path='/misRutas' render = {(props) => <MisRutas {...props} user = {user} />} />
             <Route path='/buscarRutas' render = {(props) => <BuscarRutas {...props} user = {user} />} />
-            <Route path='/llenarFormulario' render = {(props) => <LlenarFormulario  />} />
+
 
           </div>
         </div>

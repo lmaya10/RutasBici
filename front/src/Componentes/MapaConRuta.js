@@ -20,6 +20,7 @@ constructor(props) {
 		tiempo:"",
 		nombre:"Ruta",
 		publico:false,
+		idRuta:"",
 
 	};
 	this.cambiarEstado = this.cambiarEstado.bind(this)
@@ -181,6 +182,7 @@ componentDidMount() {
 			this.setState({altura: data.elevation_gain.toFixed(2)})
 			this.setState({distancia: data.distance.toFixed(2)})
 			this.setState({nombre: data.name})
+			this.setState({idRuta: data.id})
 			let segundos = data.estimated_moving_time;
 			this.setState({tiempo:  new Date(segundos * 1000).toISOString().substr(11, 8)})
 
@@ -1222,14 +1224,15 @@ render() {
       <div>
       </div>:
       <div>
-      	<button onClick={this.cambiarEstado} type="button" class="btn btn-secondary">Buscar Rutas</button>
+      	<button onClick={this.cambiarEstado} className="btn">Publicar Ruta</button>
+
       </div>}
 
 
 			{this.state.publico ?
       <div>
-        <LlenarFormulario> </LlenarFormulario>
-        <button onClick={this.cambiarEstado2} type="button" class="btn btn-secondary">Cancelar</button>
+        <LlenarFormulario idRuta={this.state.idRuta}> </LlenarFormulario>
+        <button onClick={this.cambiarEstado2} className="btn">Cancelar</button>
       </div>:
       <div>
       </div>}

@@ -28,7 +28,7 @@ render(){
       <form action = "/crearPaseo" method = "POST">
         <div className="form-group">
           <label >Seleccione la cantidad máxima de personas:</label>
-          <input className="form-control" type = "number" name="capacidad" placeholder="Ingrese la capacidad máxima"/>
+          <input className="form-control" type = "number" name="capacidad" placeholder="Ingrese la capacidad máxima" required/>
         </div>
         <div className="form-group">
           <label htmlFor="productName">Seleccione la fecha de inicio: </label>
