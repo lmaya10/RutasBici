@@ -25,6 +25,11 @@ function crearPaseo(content, callback){
 
 }
 
+router.post("/upDatePaseo", function(req,res,next) {
+  myMongoLib.upDatePaseo(req.body);
+  res.redirect("/buscarRutas");
+});
+
 router.get("/paseos", (req, res) => {
   console.log("Get Paseos");
   myMongoLib.getPaseos()

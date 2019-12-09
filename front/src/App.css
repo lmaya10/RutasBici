@@ -1,7 +1,20 @@
 body{
   margin: 20px;
+  font-family: 'Quicksand', sans-serif;
 }
 .btn{
   background-color: transparent;
   color:blue;
+}
+.nombres {
+	font-family: 'Quicksand', sans-serif;
+	color: #19578F;
+}
+
+h1{
+		font-family: 'Pacifico', cursive;
+}
+
+p{
+
 }

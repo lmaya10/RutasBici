@@ -57,7 +57,7 @@ const MyMongoLib = () => {
     });
   };
 
-  MyMongoLib.upDatePaseo = (user) => {
+  MyMongoLib.upDatePaseo = (info) => {
     client.connect(function(err, client) {
       if(err !== null) {
         return err;
@@ -68,14 +68,16 @@ const MyMongoLib = () => {
 
       // Insert a single document
       const testCol = db.collection("Paseos");
-      
+      console.log("Info req update", info);
+      //testCol.find({idRuta: info.idRuta, fecha: info.fecha}).toArray().then(data => console.log(data));
 
-      testCol.find({nombre: user.nombreS}).toArray().then(data => impResultados(data));
+      testCol.find({idRuta: info.idRuta}).toArray().then(data => impResultados(data));
 
       function impResultados(data){
-        let num = data[0].numInscritas + 1;
+        let num = parseInt(data[0].numInscritas,10) + 1;
         testCol.update({_id: data[0]._id},{$set: {numInscritas: num}} );
         console.log(data[0]._id);
+        client.close();
       } 
 
     });
