@@ -134,7 +134,7 @@ const MyMongoLib = () => {
 
       function impResultados(data){
         let num = parseInt(data[0].numInscritas,10) - 1;
-        testCol.update({_id: data[0]._id},{$set: {numInscritas: num}, $pull: {inscritos: participante});
+        testCol.update({_id: data[0]._id},{$set: {numInscritas: num}, $pull: {inscritos: participante}});
         console.log(data[0]._id);
         client.close();
       } 
