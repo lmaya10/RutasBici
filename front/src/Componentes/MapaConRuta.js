@@ -1217,9 +1217,9 @@ render() {
 		<div className="col-md-6 col-sm-6">
 			<h2><span className="Negrilla">Ruta:</span> {this.state.nombre}</h2>
 			<div ref={el => this.mapContainer = el} className='mapContainerRuta' />
-			<h6><span className="Negrilla">Distancia Total:</span> {this.state.distancia} mts</h6>
-			<h6><span className="Negrilla">Desnivel Positivo:</span> {this.state.altura} mts </h6>
-			<h6><span className="Negrilla">Tiempo Estimado:</span> {this.state.tiempo} </h6>
+			<p><span className="Negrilla">Distancia Total:</span> {this.state.distancia} mts</p>
+			<p><span className="Negrilla">Desnivel Positivo:</span> {this.state.altura} mts </p>
+			<p><span className="Negrilla">Tiempo Estimado:</span> {this.state.tiempo} </p>
 			{this.state.publico ?
       <div>
       </div>:

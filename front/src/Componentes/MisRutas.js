@@ -56,6 +56,7 @@ function MisRutas(props) {
 
 	return (
     <div>
+      <h1>Mis rutas Strava</h1>
 		  <div className="row">
 			 {renderRutas()}
 		  </div>

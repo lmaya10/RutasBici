@@ -21,8 +21,8 @@ constructor(props) {
     nombre:"Ruta",
     publico:false,
     idRuta:"",
-  };
 
+  };
   this.cambiarEstado = this.cambiarEstado.bind(this)
   this.cambiarEstado2 = this.cambiarEstado2.bind(this)
 
@@ -97,19 +97,6 @@ componentDidMount() {
     center: [this.state.lng, this.state.lat],
     zoom: this.state.zoom
   });
-
-
-
-  console.log("Inscritos ", this.props.inscritos);
-
-  for(let n = 0; n < this.props.inscritos.length; n++)
-  {
-    console.log("User ", this.props.user.id,  "Incrito ", parseInt(this.props.inscritos[n].id), "Son iguales ",this.props.user.id === parseInt(this.props.inscritos[n].id ));
-    if(this.props.user.id === parseInt(this.props.inscritos[n].id))
-    {
-      this.setState({publico: true})
-    }
-  }
 
   for(let i = 0; i < this.latitudes.length; i++)
   {
@@ -1209,7 +1196,7 @@ componentDidMount() {
         "line-cap": "round"
       },
       "paint": {
-        "line-color": "#000000",
+        "line-color": "#FC3516",
         "line-width": 3
       },
       "filter": ["==", "$type", "LineString"],
@@ -1228,33 +1215,17 @@ render() {
   return (
 
     <div>
-      <h2><span className="Negrilla">Ruta: </span> {this.state.nombre}</h2>
+      <h2>Ruta: {this.state.nombre}</h2>
       <div ref={el => this.mapContainer = el} className='mapContainerRuta' />
-      <h6><span className="Negrilla">Distancia Total: </span>{this.state.distancia} mts</h6>
-      <h6><span className="Negrilla">Desnivel Positivo: </span>{this.state.altura} mts </h6>
-      <h6><span className="Negrilla">Tiempo Estimado: </span>{this.state.tiempo} </h6>
-      <h6><span className="Negrilla">Fecha:</span> {this.props.fecha} </h6>
-      <h6><span className="Negrilla">Cupos:</span> {this.props.cupos} </h6>
+      <p>Distancia Total: {this.state.distancia} mts</p>
+      <p>Desnivel Positivo: {this.state.altura} mts </p>
+      <p>Tiempo Estimado: {this.state.tiempo} </p>
       {this.state.publico ?
-     <div>
-        <form action = "/cancelarPaseo" method = "POST">
-          <input type="hidden" name="idRuta" value={this.props.ruta}/>
-          <input type="hidden" name="fecha" value={this.props.fecha}/>
-          <input type="hidden" name="id" value={this.props.user.id}/>
-          <input type="hidden" name="nombre" value={this.props.user.displayName}/>
-          
-          <input className = "btn btnR" type="submit" value="Cancelar Inscripcion"></input>
-        </form>
+      <div>
+        <button onClick={this.cambiarEstado2} className="btn btnR">Salir de ruta</button>
       </div>:
       <div>
-        <form action = "/updatePaseo" method = "POST">
-          <input type="hidden" name="idRuta" value={this.props.ruta}/>
-          <input type="hidden" name="fecha" value={this.props.fecha}/>
-          <input type="hidden" name="id" value={this.props.user.id}/>
-          <input type="hidden" name="nombre" value={this.props.user.displayName}/>
-                            
-          <input className = "btn" type="submit" value="Inscribirse a Ruta"></input>
-        </form>
+        <button onClick={this.cambiarEstado} className="btn">Inscribirse a Ruta</button>
       </div>}
     </div>
     )
