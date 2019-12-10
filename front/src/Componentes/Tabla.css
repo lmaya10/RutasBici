@@ -1,23 +1,28 @@
 .uno{
-  background-color: green;
-  color:white;
-}
-.dos{
-  background-color: yellow;
-}
-.tres{
-  background-color: orange;
-}
-.cuatro{
-  background-color: red;
+  background-color: #009865;
+  opacity: 0.8;
   color:black;
 }
-.cinco{
-  background-color: blue;
+.dos{
+  background-color: #FEDE33;
+  opacity: 0.8;
+}
+.tres{
+  background-color: #FF9935;
+  opacity: 0.8;
+}
+.cuatro{
+  background-color: #CC0033;
   color:white;
+  opacity: 0.8;
+}
+.cinco{
+  background-color: #670097;
+  color:white;
+  opacity: 0.8;
 }
 .seis{
-  background-color: maroon;
+  background-color: #820024;
   color:white;
-
+opacity: 0.8;
 }
