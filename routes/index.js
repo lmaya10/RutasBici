@@ -7,6 +7,8 @@ const app = express();
 const MyMongoLib = require("../MyMongoLib");
 const myMongoLib = MyMongoLib();
 
+var authStravaRouter = require("./authStravaRouter");
+
 /* GET home page. */
 router.get("/", function(req, res, next) {
   res.render("index", { title: "Express" });
@@ -40,9 +42,11 @@ router.get("/paseos", (req, res) => {
 });
 
 
-//router.get("/*", (req, res) => {
-//  res.sendFile(path.join(__dirname, "../front/build/index.html"));
-//});
+router.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../front/build/index.html"));
+});
+
+app.use("/auth", authStravaRouter);
 //app.get("/*", (req, res) => {
 //  res.sendFile(path.join(__dirname, "../front/build/index.html"));
 //});
