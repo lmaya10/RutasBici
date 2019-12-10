@@ -18,7 +18,7 @@ router.post("/crearPaseo", function(req,res,next) {
 
   console.log("crearProducto", req.body);
   crearPaseo(req.body);
-  res.redirect("/buscarRutas");
+  res.redirect("/");
 
 });
 
