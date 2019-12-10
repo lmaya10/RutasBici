@@ -1240,6 +1240,8 @@ render() {
         <form action = "/cancelarPaseo" method = "POST">
           <input type="hidden" name="idRuta" value={this.props.ruta}/>
           <input type="hidden" name="fecha" value={this.props.fecha}/>
+          <input type="hidden" name="id" value={this.props.user.id}/>
+          <input type="hidden" name="nombre" value={this.props.user.displayName}/>
           
           <input className = "btn" type="submit" value="Cancelar Inscripcion"></input>
         </form>

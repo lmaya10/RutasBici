@@ -29,7 +29,7 @@ function crearPaseo(content, callback){
 
 }
 
-router.post("/upDatePaseo", function(req,res,next) {
+router.post("/updatePaseo", function(req,res,next) {
   myMongoLib.upDatePaseo(req.body);
   res.redirect("/");
 });

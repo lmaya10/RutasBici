@@ -88,14 +88,22 @@ const MyMongoLib = () => {
       testCol.find({idRuta: info.idRuta, fecha: info.fecha}).toArray().then(data => impResultados(data));
 
       function impResultados(data){
-        console.log("Data ", data);
-        if(data[0].numInscritas < data[0].cupos)
+        console.log("Data0 ", data);
+        console.log("Data1 ", parseInt(data[0].numInscritas));
+
+        console.log("Data2 ", parseInt(data[0].capacidad));
+
+        if(parseInt(data[0].numInscritas) < parseInt(data[0].capacidad))
         {
           let num = parseInt(data[0].numInscritas,10) + 1;
           testCol.update({_id: data[0]._id},{$set: {numInscritas: num}, $push: {inscritos: participante}} );
-          console.log(data[0]._id);
+          console.log("ID DEL PASEO", data[0]._id);
 
         }
+        else
+          {
+            console.log("No updateo");
+          }
         client.close();
 
       } 
@@ -121,7 +129,7 @@ const MyMongoLib = () => {
 
       function impResultados(data){
         let num = parseInt(data[0].numInscritas,10) - 1;
-        testCol.update({_id: data[0]._id},{$set: {numInscritas: num}} );
+        testCol.update({_id: data[0]._id},{$set: {numInscritas: num}, $pull: {inscritos: {nombre: info.nombre, id: info.id}}});
         console.log(data[0]._id);
         client.close();
       } 
