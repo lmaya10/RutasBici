@@ -3,11 +3,12 @@ var router = express.Router();
 const path=require("path");
 const app = express();
 
+const passport = require("passport");
+
 
 const MyMongoLib = require("../MyMongoLib");
 const myMongoLib = MyMongoLib();
 
-var authStravaRouter = require("./authStravaRouter");
 
 /* GET home page. */
 router.get("/", function(req, res, next) {
@@ -46,7 +47,28 @@ router.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../front/build/index.html"));
 });
 
-app.use("/auth", authStravaRouter);
+// Initiates basic Sign in With Slack flow
+router.get("/auth/strava",
+  passport.authenticate("strava"));
+
+router.get("/auth/strava/callback", 
+  passport.authenticate("strava", { failureRedirect: "/" }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect("/");
+  });
+
+// Handle removing the user from the session
+router.post("/auth/logout", (req, res) => {
+  req.logout();
+  res.redirect("/");
+});
+
+router.get("/auth/getUser", (req, res) => {
+  //console.log(req);
+  res.json(req.user || null);});
+
+
 //app.get("/*", (req, res) => {
 //  res.sendFile(path.join(__dirname, "../front/build/index.html"));
 //});
