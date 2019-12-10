@@ -123,13 +123,18 @@ const MyMongoLib = () => {
       // Insert a single document
       const testCol = db.collection("Paseos");
       console.log("Info req update", info);
+
+      let participante = {
+        nombre: info.nombre,
+        id: info.id
+      };
       //testCol.find({idRuta: info.idRuta, fecha: info.fecha}).toArray().then(data => console.log(data));
 
       testCol.find({idRuta: info.idRuta, fecha: info.fecha}).toArray().then(data => impResultados(data));
 
       function impResultados(data){
         let num = parseInt(data[0].numInscritas,10) - 1;
-        testCol.update({_id: data[0]._id},{$set: {numInscritas: num}, $pull: {inscritos: {id: info.id}}});
+        testCol.update({_id: data[0]._id},{$set: {numInscritas: num}, $pull: {inscritos: participante});
         console.log(data[0]._id);
         client.close();
       } 
