@@ -1,5 +1,7 @@
 var express = require("express");
 var router = express.Router();
+const path=require("path");
+const app = express();
 
 
 const MyMongoLib = require("../MyMongoLib");
@@ -37,5 +39,12 @@ router.get("/paseos", (req, res) => {
     .catch(err => res.send({err: true, msg: err}));
 });
 
+
+router.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../front/build/index.html"));
+});
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../front/build/index.html"));
+});
 
 module.exports = router;
