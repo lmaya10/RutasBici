@@ -3,6 +3,7 @@ import MisRutas from "./MisRutas.js";
 import Mapa from "./Mapa.js";
 import Tabla from "./Tabla.js";
 import Instrucciones  from "./Instrucciones.js"
+import './Home.css';
 
 function Home(props) {
   const[ub,setUb]=useState([]);
@@ -15,6 +16,7 @@ function Home(props) {
     <div>
           <div>
             <div className="col-md-10 offset-md-1">
+              <div className="jumbotron"/>
               <h1 className="text-center"> Bienvenidos a Rutas Bici </h1>
               <Mapa></Mapa>
 
