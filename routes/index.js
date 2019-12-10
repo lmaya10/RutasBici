@@ -41,6 +41,9 @@ router.get("/paseos", (req, res) => {
     .catch(err => res.send({err: true, msg: err}));
 });
 
+router.get("/auth/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./authStravaRouter.js"));
+});
 
 router.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../front/build/index.html"));
