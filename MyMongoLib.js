@@ -4,6 +4,8 @@ const MyMongoLib = () => {
 
   const MyMongoLib = this || {};
   // Connection URL
+  
+  // Cuidado con los datos de mongo!
   const url = process.env.MONGO_URL || "mongodb+srv://admin:admin@cluster0-gk0ns.mongodb.net/test?retryWrites=true&w=majority";
 
   // Database Name
