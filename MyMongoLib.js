@@ -4,7 +4,7 @@ const MyMongoLib = () => {
 
   const MyMongoLib = this || {};
   // Connection URL
-  const url = process.env.MONGO_URL || "mongodb+srv://admin:admin@cluster0-gk0ns.mongodb.net/test?retryWrites=true&w=majority";
+  const url = process.env.MONGO_URL;
 
   // Database Name
   const dbName = "EnBici";
@@ -41,6 +41,15 @@ const MyMongoLib = () => {
         return err;
       }
       console.log("Connected correctly to server");
+ 
+      let contenido = {
+        capacidad: content.capacidad,
+        fecha: content.fecha,
+        user: content.user,
+        idRuta: content.idRuta,
+        inscritos: [],
+        numInscritas: content.numInscritas
+      };
 
       const db = client.db(dbName);
 
@@ -48,7 +57,7 @@ const MyMongoLib = () => {
       const testCol = db.collection("Paseos");
       
 
-      testCol.insertOne(content, function(err){
+      testCol.insertOne(contenido, function(err){
         if(err) throw err;
         console.log("Inserto el paseo");
         client.close();
@@ -69,12 +78,43 @@ const MyMongoLib = () => {
       // Insert a single document
       const testCol = db.collection("Paseos");
       console.log("Info req update", info);
+
+      let participante = {
+        nombre: info.nombre,
+        id: info.id
+      };
       //testCol.find({idRuta: info.idRuta, fecha: info.fecha}).toArray().then(data => console.log(data));
 
       testCol.find({idRuta: info.idRuta}).toArray().then(data => impResultados(data));
 
       function impResultados(data){
         let num = parseInt(data[0].numInscritas,10) + 1;
+        testCol.update({_id: data[0]._id},{$set: {numInscritas: num}, $push: {inscritos: participante}} );
+        console.log(data[0]._id);
+        client.close();
+      } 
+
+    });
+  };
+
+  MyMongoLib.cancelarPaseo = (info) => {
+    client.connect(function(err, client) {
+      if(err !== null) {
+        return err;
+      }
+      console.log("Connected correctly to server");
+
+      const db = client.db(dbName);
+
+      // Insert a single document
+      const testCol = db.collection("Paseos");
+      console.log("Info req update", info);
+      //testCol.find({idRuta: info.idRuta, fecha: info.fecha}).toArray().then(data => console.log(data));
+
+      testCol.find({idRuta: info.idRuta}).toArray().then(data => impResultados(data));
+
+      function impResultados(data){
+        let num = parseInt(data[0].numInscritas,10) - 1;
         testCol.update({_id: data[0]._id},{$set: {numInscritas: num}} );
         console.log(data[0]._id);
         client.close();

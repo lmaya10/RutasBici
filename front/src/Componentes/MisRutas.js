@@ -55,9 +55,11 @@ function MisRutas(props) {
   };
 
 	return (
-		<div className="row">
-			{renderRutas()}
-		</div>
+    <div>
+		  <div className="row">
+			 {renderRutas()}
+		  </div>
+    </div>
 		);
 }
 

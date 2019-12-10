@@ -1196,7 +1196,7 @@ componentDidMount() {
         "line-cap": "round"
       },
       "paint": {
-        "line-color": "#FC3516",
+        "line-color": "#000000",
         "line-width": 3
       },
       "filter": ["==", "$type", "LineString"],
@@ -1229,13 +1229,20 @@ render() {
         <form action = "/updatePaseo" method = "POST">
           <input type="hidden" name="idRuta" value={this.props.ruta}/>
           <input type="hidden" name="fecha" value={this.props.fecha}/>
-          
-          <input className = "btn" onClick={this.cambiarEstado} type="submit" value="Inscribirse a Ruta"></input>
+          <input type="hidden" name="id" value={this.props.user.id}/>
+          <input type="hidden" name="nombre" value={this.props.user.displayName}/>
+                            
+          <input className = "btn" type="submit" value="Inscribirse a Ruta"></input>
         </form>
       </div>}
       {this.state.publico ?
       <div>
-        <button onClick={this.cambiarEstado2} className="btn btnR">Salir de ruta</button>
+        <form action = "/cancelarPaseo" method = "POST">
+          <input type="hidden" name="idRuta" value={this.props.ruta}/>
+          <input type="hidden" name="fecha" value={this.props.fecha}/>
+          
+          <input className = "btn" type="submit" value="Inscribirse a Ruta"></input>
+        </form>
       </div>:
       <div>
       </div>}

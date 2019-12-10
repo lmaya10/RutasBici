@@ -1196,7 +1196,7 @@ componentDidMount() {
 				"line-cap": "round"
 			},
 			"paint": {
-				"line-color": "#FC3516",
+				"line-color": "#000000",
 				"line-width": 3
 			},
 			"filter": ["==", "$type", "LineString"],
@@ -1215,11 +1215,11 @@ render() {
 	return (
 
 		<div className="col-md-6 col-sm-6">
-			<h2>Ruta: {this.state.nombre}</h2>
+			<h2><span className="Negrilla">Ruta:</span> {this.state.nombre}</h2>
 			<div ref={el => this.mapContainer = el} className='mapContainerRuta' />
-			<h6>Distancia Total: {this.state.distancia} mts</h6>
-			<h6>Desnivel Positivo: {this.state.altura} mts </h6>
-			<h6>Tiempo Estimado: {this.state.tiempo} </h6>
+			<h6><span className="Negrilla">Distancia Total:</span> {this.state.distancia} mts</h6>
+			<h6><span className="Negrilla">Desnivel Positivo:</span> {this.state.altura} mts </h6>
+			<h6><span className="Negrilla">Tiempo Estimado:</span> {this.state.tiempo} </h6>
 			{this.state.publico ?
       <div>
       </div>:

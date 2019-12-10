@@ -45,6 +45,8 @@ render(){
 
         <input type="hidden" name="idRuta" value={this.props.idRuta}/>
 
+        <input type="hidden" name="inscritos" value="[]"/>
+
         <input type="hidden" name="numInscritas" value="0"/>
 
         <input className = "btn" type="submit" value="Publicar Ruta"></input>

@@ -28,10 +28,10 @@ function BuscarRutas(props) {
   return(
       <div>
         <div>
-          <h1 className = "tituloGrupos">Rutas Actuales</h1>
+          <h1 className = "tituloGrupos text-center" >Rutas Actuales</h1>
           <br/>
         </div>
-        <div class="ListaPaseos">
+        <div class="ListaPaseos row">
         	{renderPaseos()}
         </div>
       </div>

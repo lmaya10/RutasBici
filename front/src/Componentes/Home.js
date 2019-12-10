@@ -15,6 +15,7 @@ function Home(props) {
     <div>
           <div>
             <div className="col-md-10 offset-md-1">
+              <h1 className="text-center"> Bienvenidos a Rutas Bici </h1>
               <Mapa></Mapa>
 
               <Tabla></Tabla>
