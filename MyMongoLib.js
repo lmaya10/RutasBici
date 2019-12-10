@@ -101,9 +101,9 @@ const MyMongoLib = () => {
 
         }
         else
-          {
-            console.log("No updateo");
-          }
+        {
+          console.log("No updateo");
+        }
         client.close();
 
       } 
@@ -129,7 +129,7 @@ const MyMongoLib = () => {
 
       function impResultados(data){
         let num = parseInt(data[0].numInscritas,10) - 1;
-        testCol.update({_id: data[0]._id},{$set: {numInscritas: num}, $pull: {inscritos: {nombre: info.nombre, id: info.id}}});
+        testCol.update({_id: data[0]._id},{$set: {numInscritas: num}, $pull: {inscritos: {id: info.id}}});
         console.log(data[0]._id);
         client.close();
       } 
