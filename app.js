@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, "front/build")));
 configureAuthStrava(app);
 
 app.use("/", indexRouter);
-//app.use("/auth", authStravaRouter);
+app.use("/auth", authStravaRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
