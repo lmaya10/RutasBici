@@ -117,7 +117,7 @@ const MyMongoLib = () => {
       console.log("Info req update", info);
       //testCol.find({idRuta: info.idRuta, fecha: info.fecha}).toArray().then(data => console.log(data));
 
-      testCol.find({idRuta: info.idRut, fecha: info.fecha}).toArray().then(data => impResultados(data));
+      testCol.find({idRuta: info.idRuta, fecha: info.fecha}).toArray().then(data => impResultados(data));
 
       function impResultados(data){
         let num = parseInt(data[0].numInscritas,10) - 1;
