@@ -13,7 +13,7 @@ function BuscarRutas(props) {
         return props.paseos.map(d => 
         <div className="col-md-6 col-sm-6">
           <h2>Dueño de Ruta: {d.user}</h2>
-          <MapaConRutaDos  user = {props.user} ruta = {d.idRuta} fecha = {d.fecha} cupos = {d.capacidad-d.numInscritas}></MapaConRutaDos>
+          <MapaConRutaDos  user = {props.user} ruta = {d.idRuta} fecha = {d.fecha} cupos = {d.capacidad-d.numInscritas} inscritos ={d.inscritos}></MapaConRutaDos>
           <br/>
         </div>
       )
