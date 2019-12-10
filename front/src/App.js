@@ -83,7 +83,8 @@ function App() {
                   <div className="navbar-brand">
                     <form className="btn" action={"/auth/logout"} method="POST">
                       <input className="btn" type="submit" value="Logout" />
-                    </form></div>
+                    </form>
+                    </div>
                   </div>:
                 <div>
                   <div className="navbar-brand"> <a className="btn" href={"/auth/strava/callback"}>LogIn</a></div>

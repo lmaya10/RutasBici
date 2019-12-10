@@ -1243,7 +1243,7 @@ render() {
           <input type="hidden" name="id" value={this.props.user.id}/>
           <input type="hidden" name="nombre" value={this.props.user.displayName}/>
           
-          <input className = "btn" type="submit" value="Cancelar Inscripcion"></input>
+          <input className = "btn btnR" type="submit" value="Cancelar Inscripcion"></input>
         </form>
       </div>:
       <div>
