@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
 import './Mapa.css';
 
+// CUIDADO CON LOS TOKENS
 mapboxgl.accessToken = "pk.eyJ1IjoibG1heWExMCIsImEiOiJjazNwOWo0ODUwMHVlM25xYzJ6d3czMTAwIn0.l_Mep-KqFaX4k96TX3LhAw";
 class Mapa extends React.Component {
 // Code from the next few steps will go here
