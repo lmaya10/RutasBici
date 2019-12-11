@@ -51,6 +51,7 @@ const configureAuthStrava = app => {
       resave: false,
       saveUninitialized: false,
       secret: "John loves this!"
+	// Este secret tambien deberia estar almacenado en una variable de entorno
     })
   	);
 
