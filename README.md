@@ -1,5 +1,7 @@
 # Aplicación que permite ver la calidad del aire en una ruta de bicicleta
 
+## Pantallazo o imagen de la aplicacion
+
 ### Pre requisitos
 
 ```
