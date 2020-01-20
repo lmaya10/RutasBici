@@ -5,6 +5,7 @@ import './Mapa.css';
 import { BrowserRouter as Router, Route, Link, withRouter, Switch } from "react-router-dom";
 import LlenarFormulario from "./LlenarFormulario.js";
 
+// CUIDADO CON LOS TOKENS
 mapboxgl.accessToken = "pk.eyJ1IjoibG1heWExMCIsImEiOiJjazNwOWo0ODUwMHVlM25xYzJ6d3czMTAwIn0.l_Mep-KqFaX4k96TX3LhAw";
 class MapaConRutaDos extends React.Component {
 // Code from the next few steps will go here
